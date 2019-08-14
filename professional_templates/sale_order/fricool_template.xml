@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   <data>
+      <template id="fricool_order_lines" name="Sale Order Data">
+        <div class="matrix-bar center-wr" style=" float: left;width: 1105px;margin: 0 auto;margin-top:20px !important">
+            <div class="table-bar" style="width: 100%;font-size:13px !important;min-height: 80px;background-image: url('/professional_templates/static/src/images/bar.jpg');background-size: 100%;position: relative;">
+               <div class="item-description w-one" style="float: left;">
+                  <img class="mobmenu" src="/professional_templates/static/src/images/mobmenu.png" style=" float: left;width: 40px;margin-top: 24px;padding-left: 57px; width: 20px;padding: 0 !important;margin-left:10px"/>
+                  <h2 style="color: #fff;text-transform: uppercase;margin-top: 24px;margin-left: 18px !important;display: inline-block;font-size: 25px;letter-spacing: 0.5px;">
+                     <strong>Item Description</strong>
+                  </h2>
+               </div>
+               <div class="item-icons w-two" style="float:right;width: 600px;">
+                  <span class="w-equal" style="width: 33.3%;float: left;">
+                     <img class="mobmenu" src="/professional_templates/static/src/images/icodoller.png" style="width: 20px;padding: 0 !important;margin-left:10px"/>
+                     <h2 style="color: #fff;text-transform: uppercase;margin-top: 24px;margin-left: 18px !important;display: inline-block;font-size: 25px;letter-spacing: 0.5px;">
+                        <strong>Price</strong>
+                     </h2>
+                  </span>
+                  <span class="w-equal" style="width: 33.3%;float: left;">
+                     <img class="mobmenu" src="/professional_templates/static/src/images/icoquantity.png" style="width: 20px;padding: 0 !important;margin-left:10px"/>
+                     <h2 style="color: #fff;text-transform: uppercase;margin-top: 24px;margin-left: 18px !important;display: inline-block;font-size: 25px;letter-spacing: 0.5px;">
+                        <strong>Quantity</strong>
+                     </h2>
+                  </span>
+                  <span class="w-equal" style="width: 33.3%;float: left;">
+                     <img class="mobmenu" src="/professional_templates/static/src/images/icototal.png" style="width: 20px;padding: 0 !important;margin-left:10px"/>
+                     <h2 style="color: #fff;text-transform: uppercase;margin-top: 24px;margin-left: 18px !important;display: inline-block;font-size: 25px;letter-spacing: 0.5px;">
+                        <strong>TOTAL</strong>
+                     </h2>
+                  </span>
+               </div>
+            </div>
+            <div class="table-bar-main">
+                <t t-foreach="doc.order_line" t-as="l">
+                   <div class="table-bar-li" style="margin-bottom: 0;display: inline-block;width: 100%;border-bottom: 1px solid #a7a7a7;box-sizing: border-box;height: auto;">
+                      <div class="title-description w-one left" style="float:left;padding:13px;font-size:15px;box-sizing: border-box;background: #f4f4f4;height:100px;margin-top: -4px;width: 500px;">
+                         <h3 style="color: #3f3b3c;font-weight: 250;letter-spacing: 1.2px;">
+                            <span t-field="l.product_id">
+                            </span>
+                         </h3>
+                         <h4 t-field="l.name">
+                         </h4>
+                      </div>
+                      <div class="item-information w-two right" style="float:right;width: 600px;text-align: center;height: auto;">
+                         <span class="w-equal" style="width: 33.3%;float: left;">
+                            <p style="font-size: 23px;color: #393838;margin: 23px 0;padding: 10px 0;" t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}' t-field="l.price_unit">
+                            </p>
+                         </span>
+                         <span style="width: 33.3%;float: left;background: #f4f4f4;height: 98px;margin-top: -3px;" class="w-equal">
+                            <p style="font-size: 23px;color: #393838;margin: 23px 0;padding: 10px 0;" t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}' t-field="l.product_uom_qty"></p>
+                         </span>
+                         <span class="w-equal" style="width: 33.3%;float: left;">
+                            <p style="font-size: 23px;color: #393838;margin: 23px 0;padding: 10px 0;" t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}' t-field="l.price_subtotal"></p>
+                         </span>
+                      </div>
+                   </div>
+               </t>
+               <!-- <div class="table-bar-li" style="margin-bottom: 0;display: inline-block;width: 100%;border-bottom: 2px solid #a7a7a7;box-sizing: border-box;height: 98px;">
+                  <div class="title-description w-one left" style="padding: 14px 8px 18px 57px;box-sizing: border-box;background: #f4f4f4;margin-top: -4px;width: 515px;">
+                    <h2 style="color: #3f3b3c;font-weight: 400;font-size: 23px;letter-spacing: 1.2px;">Logo &amp;Branding</h2>
+                    <p>Lorem Ipsum is simply dummy text of the printing
+                                        
+                        <br/>and typesetting industry. Lorem.
+                                      
+                    </p>
+                  </div>
+                  <div class="item-information w-two right" style="width: 590px;text-align: center;height: 100px;">
+                    <span class="w-equal" style="width: 33.3%;float: left;">
+                        <p style="font-size: 26px;color: #393838;margin: 23px 0;padding: 10px 0;">$100.00</p>
+                    </span>
+                    <span style="width: 33.3%;float: left;background: #f4f4f4;height: 98px;margin-top: -3px;" class="w-equal">
+                        <p style="font-size: 26px;color: #393838;margin: 23px 0;padding: 10px 0;">1</p>
+                    </span>
+                    <span class="w-equal" style="width: 33.3%;float: left;">
+                        <p style="font-size: 26px;color: #393838;margin: 23px 0;padding: 10px 0;">$100.00</p>
+                    </span>
+                  </div>
+                  </div> -->
+            </div>
+         </div>
+      </template>
+      <template id="SO_15_document" name="Fricool SO Template">
+         <!-- Multicompany -->
+         <t t-if="doc and 'company_id' in doc">
+            <t t-set="company" t-value="doc.company_id"></t>
+         </t>
+         <t t-if="not doc or not 'company_id' in doc">
+            <t t-set="company" t-value="res_company"></t>
+         </t>
+         <style type="text/css">
+            *{margin: 0;padding: 0;font-family: 'Roboto', sans-serif;}
+            .left{
+            float: left;
+            }
+            .right{
+            float: right;
+            }
+            .center-wr {
+            width: 1105px;
+            margin: 0 auto;
+            }
+            .matrix-bar.center-wr div img {
+            float: left;width: 40px;margin-top: 24px;padding-left: 57px;
+            }
+         </style>
+         <div class="header" style="display: inline-block;width: 100%;min-height: 80px;background-color: #0e0d12;">
+            <div class="center-wr">
+               <div class="logo left" style="display: inline-block;width: 140px;margin-top: 20px;margin-left:20px;">
+                  <img style="width: 100%;" src="/professional_templates/static/src/images/logo.png"/>
+               </div>
+               <div class="right-content right" style="float:right;padding:20px;margin-top:8px;">
+                  <a style="color: #fff;font-size: 15px;display: inline-block;font-family: 'Roboto', sans-serif;font-weight: 100;">www.dreamil.in</a>
+               </div>
+            </div>
+         </div>
+         <!--end of Header-->
+         <!-- START OF PAGE -->
+         <div class="article page" style="position:relative;z-index:1;">
+            <div class="content-start">
+               <div class="invoice center-wr" style="min-height: auto;">
+                  <div class="left invoce-text" style="float:left">
+                     <h4 t-if="doc.name" style="font-size: 40px;margin-top: 0px !important;margin-left: -6px;letter-spacing: 1px;color: #231f20;">
+                        <strong t-if="doc.state not in ['draft','sent']" style="white-space:nowrap;">ORDER</strong>
+                        <strong t-if="doc.state in ['draft','sent']" style="white-space:nowrap;">QUOTATION</strong>
+                     </h4>
+                     <p style="font-size: 20px;line-height: 20px;color: #1e1e1e;">
+                        <t t-if="doc.state not in ['draft','sent']">
+                            Order 
+                        </t> 
+                        <t t-if="doc.state in ['draft','sent']">
+                            Quotation 
+                        </t> No. 
+                        <span style="margin-left: 10px;" t-field="doc.name">
+                        </span>
+                     </p>
+                     <p style="font-size: 20px;line-height: 20px;color: #1e1e1e;">Date: 
+                        <span style="margin-left: 10px;" t-field="doc.confirmation_date"  t-options="{&quot;format&quot;: &quot;dd-MM-yyyy&quot;}" ></span>
+                     </p>
+                  </div>
+                  <div class="right invoce-contact" style="float:right;margin-top: 0px !important;font-size: 16px;z-index:9;position: relative;left: -12px;">
+                     <p style="line-height: 10px;color: #1e1e1e;">
+                        <span style="color: #4797d2;font-weight: 600;text-align: right;width: 105px;display: inline-block;margin-right: 10px;width: 115px;">Invoice to:</span> 
+                        <span t-field="doc.partner_id.name"/>
+                     </p>
+                     <p style="line-height: 10px;color: #1e1e1e;">
+                        <span style="color: #4797d2;font-weight: 600;text-align: right;width: 105px;display: inline-block;margin-right: 10px;width: 115px;">Address:</span>
+                        <span t-field="doc.partner_id.street"/>, 
+                        <t t-if="doc.partner_id.street2">
+                            <span t-field="doc.partner_id.street2"/>,
+                        </t>
+                        <span t-field="doc.partner_id.city"/>, 
+                        <span t-field="doc.partner_id.country_id.name"/>
+                     </p>
+                     <p style="line-height: 10px;color: #1e1e1e;">
+                        <span style="color: #4797d2;font-weight: 600;text-align: right;width: 105px;display: inline-block;margin-right: 10px;width: 115px;">Email:</span>
+                            <span t-field="doc.partner_id.email"/>
+                     </p>
+                     <p style="line-height: 10px;color: #1e1e1e;">
+                        <span style="color: #4797d2;font-weight: 600;text-align: right;width: 105px;display: inline-block;margin-right: 10px;width: 115px;">Phone:</span>
+                        <span t-field="doc.partner_id.phone"/>
+                     </p>
+                     <p style="line-height: 10px;color: #1e1e1e;">
+                        <span style="color: #4797d2;font-weight: 600;text-align: right;width: 105px;display: inline-block;margin-right: 10px;width: 115px;">Mob:</span>
+                        <span t-field="doc.partner_id.mobile"/>
+                     </p>
+                  </div>
+               </div>
+            </div>
+            <t t-call="professional_templates.fricool_order_lines"/>
+            <div class="section-authanticate">
+                <div class="auth-section right" style="margin-top:2px!important;margin-right:-14px !important;float:right">
+                  <div class="total-table" style="width: 400px;display: inline-block;height: 140px;padding: 24px 0;padding-left: 0px;padding-left: 0px;padding-left: 36px !important;box-sizing: border-box;background-image: url('/professional_templates/static/src/images/bgbar.png');background-repeat: no-repeat;background-size: 100% 100%;margin-top: -4px;padding-right: 32px !important;">
+                     <span class="w-equal table-value left " style="float:left;width: 58%;">
+                        <p style="color: #fff;font-size:20px;line-height: 25px;">Sub Total</p>
+                     </span>
+                     <span class="w-equal right" style="width:40%;float:right">
+                        <p style="float:right;color: #fff;font-size: 20px;line-height: 25px;"  t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}' t-field="doc.amount_untaxed">
+                        </p>
+                     </span>
+                     <span class="w-equal table-value left " style="float:left;width: 58%;">
+                        <p style="color: #fff;font-size: 20px;line-height: 25px;">Tax</p>
+                     </span>
+                     <span class="w-equal right" style="float:right;width:40%;">
+                        <p style="color: #fff;font-size: 20px;line-height: 25px; float:right"   t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}' t-field="doc.amount_tax">>
+                        </p>
+                     </span>
+                     <span class="w-equal tale-totals left" style=" float:left;margin-top: 10px;">
+                        <p style="color: #fff;font-size: 20px;line-height: 25px;">TOTAL</p>
+                     </span>
+                     <span class="w-equal tale-totals right" style=" float:right;width:40%;float:right;margin-top: 10px;margin-left: 72px;">
+                        <p style="float:right;color: #fff;font-size: 20px;line-height: 25px;"   t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}' t-field="doc.amount_total">
+                        </p>
+                     </span>
+                  </div>
+                  <div class="sign-rav" style="text-align: center;margin-top: 70px;">
+                     <h3 style="font-size: 26px;margin-top: -4px;" t-field="doc.user_id">                       
+                     </h3>
+                     <p style="font-size: 22px;color: #333;">Salesperson</p>
+                  </div>
+               </div>
+            </div>
+            
+            <div class="testimonial-section center-wr" style="display: inline-block;width: 100%;position:relative;top:0;z-index:1;" t-if="doc.note">
+               <h3 style="font-size: 30px;margin-top: 28px;color: #4797cb;">
+                  <span>*</span>Terms &amp; Conditions/Notes:
+               </h3>
+               <p style="padding-left: 20px;padding-top: 5px;font-size: 19px;color: #545454;" t-field="doc.note"></p>
+            </div>
+
+
+
+             <div class="footer" style="top:0px !important;position:relative; z-index:999999;">
+            <div class="thanks-buss-section" style="position:relative; z-index:999999;top:-28px;">
+               <h2 style="position:relative;top:25px;margin-top: 0px!important;margin-bottom: 5px;text-align: center;font-size: 15px !important;color: #4d9ac9;">ThankS For Your Business</h2>
+               <div class="content-equal" style="position:relative;top:25px;width: 31%;float: left;text-align:center;">
+                  <img src="/professional_templates/static/src/images/icocall.png" style="width: 45px !important;display:inline-block;float:left;margin-bottom:5px;margin-top:3px;margin-right:10px;margin-left:25px;"/>
+                  <p style="font-size: 15px;margin-top: 0px;top:8px;left:38px;position:relative;color: #3d393a;line-height: 30px;">(99) 789 6547 3216</p>
+                  <p style="font-size: 15px;margin-top: -6px;color: #3d393a;line-height: 30px;">(99) 789 6547 3216</p>
+               </div>
+               <div class="content-equal" style="position:relative;top:25px;width: 31%;float: left;text-align:center;">
+                  <img src="/professional_templates/static/src/images/icoearth.png" style="width: 45px !important;display:inline-block;float:left;margin-bottom:5px;margin-top:3px;margin-right:10px;margin-left:25px;"/>
+                  <p style="font-size: 15px;margin-top: 0px;top:8px;left:38px;position:relative;color: #3d393a;line-height: 30px;">graphic@mail.com</p>
+                  <p style="font-size: 15px;margin-top: -6px;color: #3d393a;line-height: 30px;">www.graphics.com</p>
+               </div>
+               <div class="content-equal" style="position:relative;top:25px;width: 31%;margin-left:15px;float: left;text-align:center;">
+                  <img src="/professional_templates/static/src/images/icoloction.png" style="width: 45px !important;display:inline-block;float:left;margin-bottom:5px;margin-top:3px;margin-right:10px;margin-left:25px;"/>
+                  <p style="font-size: 15px;margin-top: 0px;top:8px;left:38px;position:relative;color: #3d393a;line-height: 30px;">(99) 789 6547 3216</p>
+                  <p style="font-size: 15px;margin-top: -6px;color: #3d393a;line-height: 30px;">(99) 789 6547 3216</p>
+               </div>
+            </div>
+            <div class="footer-area" style="top:-10px !important;position:relative;">
+               <img style="width: 100% !important;margin-top: 5px !important;padding: 0 !important;" src="/professional_templates/static/src/images/footer.jpg"/>
+            </div>
+
+         </div>
+         </div>
+         <!--End of PAGE-->
+         <!--FOOTER -->
+
+        
+      </template>
+   </data>
+</odoo>
